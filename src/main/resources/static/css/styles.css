@@ -1,0 +1,24 @@
+*{
+  /*Reset do CSS - limpa todas as formataçoes*/
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+    box-sizing: border-box; /* Tudo que der de largura conta a borda */
+}
+
+.fotos-evento {
+  max-width: 60%;
+  height: auto;
+}
+
+.texto-chamada {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+}
+.texto-arredondado {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+}
