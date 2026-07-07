@@ -1,33 +1,13 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-br" layout:decorate="~{layout/layout.html}">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Página Evento</title>
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
+
   </head>
   <body>
-    <header
-      class="d-flex justify-content-between align-items-center px-2 py-1 border-bottom text-white"
-      style="background: linear-gradient(135deg, #06bf5f, #1e4d2b)"
-    >
-      <h1>
-        <img src="/assets/img/FeiraGreen.jfif" alt="HubGreen" height="100" />
-      </h1>
-      <div style="font-size: 22px">
-        HubGreen<br />
-        <p style="font-size: 12px">
-          Encontre a feira livre ou evento mais próxima de você!
-        </p>
-      </div>
-    </header>
-
+    <main layout:>
+    
     <h2 class="texto-arredondado">Feira da Cultura</h2>
     <nav>
       <a href="#evento" class="btn btn-outline-success btn-sm">Sobre a Feira</a>
@@ -37,7 +17,6 @@
       <a href="#fotos" class="btn btn-outline-success btn-sm">Fotos</a>
     </nav>
 
-    <main>
       <section id="evento">
         <table class="table table-bordered table-striped mt-3">
           <thead>
@@ -162,15 +141,7 @@
           </button>
         </div>
       </section>
-    </main>
-    <footer style="background: linear-gradient(135deg, #06bf5f, #1e4d2b)">
-      <p>&copy; 2026 HubGreen - Todos os direitos reservados.</p>
-    </footer>
+    </main>    
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
   </body>
 </html>
