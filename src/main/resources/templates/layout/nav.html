@@ -1,0 +1,30 @@
+<div class="d-flex" th:fragment="navigation">
+  <div class="offcanvas-md offcanvas-start bg-darkv vh-100 bg-dark" id="offcanvas-nav">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title text-white" id="staticBackdropLabel">
+        Menu Principal
+      </h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+        data-bs-target="#offcanvas-nav" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="p-sm-3 text-white main-menu">
+        <ul class="nav nav-pills d-flex flex-column">
+          <li class="nav-item">
+            <a href="admin.html" class="nav-link active">
+              <i class="bi bi-house-door me-2"></i>
+              <span>Página Inicial</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="lista_usuario.html" class="nav-link text-white">
+              <i class="bi bi-people-fill me-2"></i>
+              <span>Lista de Usuários</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
