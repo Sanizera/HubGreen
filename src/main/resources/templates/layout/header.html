@@ -1,0 +1,39 @@
+<header
+  class="d-flex bg-light border-bottom py-3 px-4 align-items-center justify-content-between"
+  th:fragment="header"
+>
+  <div id="logo">
+    <a href="#">
+      <img
+        src="https://cdn.sonicadigital.com.br/entra21/storage/settings/1/original-691cbe5cd50d1.png"
+        alt="Logo"
+        height="50"
+      />
+    </a>
+  </div>
+  <div id="usuario">
+    <div class="d-none d-sm-flex">
+      <span>Luiz Felipe Silveira</span>
+      <button
+        type="button"
+        class="btn btn-link dropdown-toggle dropdown-toggle-split"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <span class="visually-hidden">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Sair</a></li>
+      </ul>
+    </div>
+    <div class="d-sm-none">
+      <a
+        class="btn btn-outline-primary"
+        data-bs-toggle="offcanvas"
+        href="#offcanvas-nav"
+      >
+        <i class="bi bi-list"></i>
+      </a>
+    </div>
+  </div>
+</header>
