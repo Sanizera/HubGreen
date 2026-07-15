@@ -3,21 +3,7 @@
   <head th:replace="~{layout/head.html::head}"></head>
 
   <body>
-    <header
-      class="d-flex justify-content-between align-items-center px-2 py-1 border-bottom text-white"
-      style="background: linear-gradient(135deg, #06bf5f, #1e4d2b)"
-    >
-      <h1>
-        <img src="/assets/img/FeiraGreen.jfif" alt="HubGreen" height="100" />
-      </h1>
-      <div style="font-size: 22px">
-        HubGreen
-        <br />
-        <p style="font-size: 12px">
-          Encontre a feira livre ou evento mais próxima de você!
-        </p>
-      </div>
-    </header>
+    <header th:replace="~{layout/header.html::header}"></header>
 
     <main layout:fragment="content"></main>
 
