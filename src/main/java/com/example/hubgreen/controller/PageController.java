@@ -27,5 +27,10 @@ public class PageController {
     public String profile() {
         return "profile";
     }
+
+    @GetMapping("/lista_usuario")
+    public String listaUsuario() {
+        return "lista_usuario";
+    }
     
 }
