@@ -4,8 +4,12 @@
 
   <body class="d-flex flex-column min-vh-100">
     <header th:replace="~{layout/header.html::header}"></header>
+    <div class="d-flex">
+      <nav th:replace="~{layout/nav.html::navigation}"></nav>
 
-    <main layout:fragment="content"  class="p-4 w-100 flex-grow-1"></main>
+      <main layout:fragment="content"  class="p-4 w-80 flex-grow-1"></main>
+
+    </div>
 
     <footer style="background: linear-gradient(135deg, #06bf5f, #1e4d2b)">
       <p>&copy; 2026 HubGreen - Todos os direitos reservados.</p>
