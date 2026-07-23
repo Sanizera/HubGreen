@@ -2,10 +2,10 @@
 <html lang="en">
   <head th:replace="~{layout/head.html::head}"></head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <header th:replace="~{layout/header.html::header}"></header>
 
-    <main layout:fragment="content"></main>
+    <main layout:fragment="content"  class="p-4 w-100 flex-grow-1"></main>
 
     <footer style="background: linear-gradient(135deg, #06bf5f, #1e4d2b)">
       <p>&copy; 2026 HubGreen - Todos os direitos reservados.</p>
