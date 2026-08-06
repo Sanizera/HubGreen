@@ -1,26 +1,58 @@
 <div class="d-flex" th:fragment="navigation">
-  <div class="offcanvas-md offcanvas-start bg-darkv vh-100 bg-dark" id="offcanvas-nav">
+  <div
+    class="offcanvas-md offcanvas-start bg-darkv vh-100 bg-dark"
+    id="offcanvas-nav"
+  >
     <div class="offcanvas-header">
       <h5 class="offcanvas-title text-white" id="staticBackdropLabel">
         Menu Principal
       </h5>
-      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-        data-bs-target="#offcanvas-nav" aria-label="Close"></button>
+      <button
+        type="button"
+        class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"
+        data-bs-target="#offcanvas-nav"
+        aria-label="Close"
+      ></button>
     </div>
     <div class="offcanvas-body">
       <nav class="p-sm-3 text-white main-menu">
         <ul class="nav nav-pills d-flex flex-column">
           <li class="nav-item">
-            <a th:href="@{/index}" class="nav-link active">
+            <a
+              th:href="@{/}"
+              class="nav-link text-white d-inline-flex align-items-center"
+            >
               <i class="bi bi-house-door me-2"></i>
               <span>Página Inicial</span>
             </a>
           </li>
 
-          <li>
-            <a th:href="@{/events}" class="nav-link text-white">
-              <i class="bi bi-people-fill me-2"></i>
+          <li class="nav-item">
+            <a
+              th:href="@{/events}"
+              class="nav-link text-white d-inline-flex align-items-center"
+            >
+              <i class="bi bi-calendar2-event me-2"></i>
               <span>Eventos</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              th:href="@{/profile}"
+              class="nav-link text-white d-inline-flex align-items-center"
+            >
+              <i class="bi bi-person-lines-fill me-2"></i>
+              <span>Participantes</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              th:href="@{/search}"
+              class="nav-link text-white d-inline-flex align-items-center"
+            >
+              <i class="bi bi-search-heart me-2"></i>
+              <span>Pesquisa</span>
             </a>
           </li>
         </ul>
