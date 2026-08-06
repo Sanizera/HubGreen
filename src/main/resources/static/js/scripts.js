@@ -3,55 +3,52 @@ const GLOBAL_URL = "https://6a63aec1b30b52361e1a9073.mockapi.io/events";
 const qs = (selector) => document.querySelector(selector);
 const qsAll = (selector) => document.querySelectorAll(selector);
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener("DOMContentLoaded", () => {
+  loadEvents();
+});
 
-    loadEvents();
+async function loadEvents() {
+  try {
+    const response = await fetch(GLOBAL_URL);
+    const data = await response.json();
 
-})
-
-async function loadEvents(){
-    try{
-        const response =  await fetch(GLOBAL_URL);
-        const data = await response.json();
-
-        populateTable(data);
-    }catch (err){
-        console.log(err);
-        alert("Impossível carregar Eventos.");
-    }
+    populateTable(data);
+  } catch (err) {
+    console.log(err);
+    alert("Impossível carregar Eventos.");
+  }
 }
 
-function populateTable(data){
-    
-    const tbody = qs("tbody");
-    
-    let html = "";
-    for(event of data){
-        const dateTime = getDateTime(event.date);
+function populateTable(data) {
+  const tbody = qs("tbody");
 
-        html+=`
-        <tr>
-            <td>${event.name}</td>
-            <td>${event.local}</td>
-            <td>${dateTime[0]}</td>
-            <td>${dateTime[1]}</td>
-            <td>Opções</td>
-        </tr>
-        `        
-    }
+  let html = "";
+  for (event of data) {
+    const dateTime = getDateTime(event.date);
 
-    tbody.innerHTML = html;
+    html += `
+    <tr class="position-relative">
+        <td>
+            <a href="/event?id=${event.id}" class="stretched-link text-decoration-none text-dark">
+                ${event.name}
+            </a>
+        </td>
+        <td>${event.local}</td>
+        <td>${dateTime[0]}</td>
+        <td>${dateTime[1]}</td>
+        <td>Opções</td>
+    </tr>
+    `;
+  }
+
+  tbody.innerHTML = html;
 }
 
-function getDateTime(timeStamp){
-    const [date, time] = timeStamp.split("T");
+function getDateTime(timeStamp) {
+  const [date, time] = timeStamp.split("T");
 
-    const [year, month, day] = date.split("-");
+  const [year, month, day] = date.split("-");
 
-    const timeResult = time.substring(0, 5);
-    return([ 
-        `${day}/${month}/${year}`,
-        timeResult
-    ]) ;
+  const timeResult = time.substring(0, 5);
+  return [`${day}/${month}/${year}`, timeResult];
 }
-
