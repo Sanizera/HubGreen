@@ -1,103 +1,201 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" layout:decorate="layout/layout.html">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
+  </head>
 
-</head>
-
-<body>
-
+  <body>
     <main class="p-3 pt-0" layout:fragment="content">
-        <section id="profile" class="d-flex">
-            <img src="../static/img/profile-picture.png" alt="profile-picture" id="profile-picture"
-                class="rounded-circle" style="width: 150px; object-fit: cover;">
-            <div>
-                <h2>Name</h2>
-                <article>
-                    <p>Write your biography here</p>
-                </article>
-            </div>
-        </section>
-        <hr>
-        <section class="d-flex d-grid gap-2">
-            <div id="products" class="col-6 card p-3 mb-0">
-                <h3 class="text-center">Products</h3>
-                <ul class="p-0">
-                    <li class="card d-flex flex-row mb-2 gap-2">
-                        <img src="../static/img/no_image.jpg" alt="product-img" style="width: 200px;">
-                        <div class="d-flex flex-column justify-content-between">
-                            <h4>Product </h4>
-                            <p>Description</p>
-                            <p>R$ 9,90</p>
-                        </div>
-                    </li>
-                    <li class="card d-flex flex-row mb-2 gap-2">
-                        <img src="../static/img/no_image.jpg" alt="product-img" style="width: 200px;">
-                        <div class="d-flex flex-column justify-content-between">
-                            <h4>Product </h4>
-                            <p>Description</p>
-                            <p>R$ 9,90</p>
-                        </div>
-                    </li>
-                    <li class="card d-flex flex-row mb-2 gap-2">
-                        <img src="../static/img/no_image.jpg" alt="product-img" style="width: 200px;">
-                        <div class="d-flex flex-column justify-content-between">
-                            <h4>Product </h4>
-                            <p>Description</p>
-                            <p>R$ 9,90</p>
-                        </div>
-                    </li>
+      <section id="profile" class="d-flex">
+        <img
+          src="../static/img/profile-picture.png"
+          alt="profile-picture"
+          id="profile-picture"
+          class="rounded-circle"
+          style="width: 150px; object-fit: cover"
+        />
+        <div>
+          <h2>Name</h2>
+          <article>
+            <p>Write your biography here</p>
+          </article>
+          <button
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#modal_profile"
+          >
+            Novo Participante
+          </button>
+        </div>
+      </section>
+      <hr />
 
-                </ul>
-                <p class="text-center"> See More</p>
-            </div>
+      <!-- Modal -->
+      <div class="modal" tabindex="-1" id="modal_profile">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <form action="#">
+              <div class="modal-header">
+                <h5 class="modal-title">Novo Profile</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div class="mb-3">
+                  <label for="nome" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    name="nome"
+                    id="nome"
+                    class="form-control"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="endereco" class="form-label">Endereço</label>
+                  <input
+                    type="text"
+                    name="endereco"
+                    id="endereco"
+                    class="form-control"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="contato" class="form-label">Contato</label>
+                  <input
+                    type="text"
+                    name="contato"
+                    id="contato"
+                    class="form-control"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="biografia" class="form-label">Biografia</label>
+                  <input
+                    type="text"
+                    name="biografia"
+                    id="biografia"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-success">
+                  Save changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
 
-            <div id="events" class="col-6 card p-3 mb-0">
-                <h3 class="text-center">Events</h3>
-                <ul class="p-0">
+      <section class="d-flex d-grid gap-2">
+        <div id="products" class="col-6 card p-3 mb-0">
+          <h3 class="text-center">Products</h3>
+          <ul class="p-0">
+            <li class="card d-flex flex-row mb-2 gap-2">
+              <img
+                src="../static/img/no_image.jpg"
+                alt="product-img"
+                style="width: 200px"
+              />
+              <div class="d-flex flex-column justify-content-between">
+                <h4>Product</h4>
+                <p>Description</p>
+                <p>R$ 9,90</p>
+              </div>
+            </li>
+            <li class="card d-flex flex-row mb-2 gap-2">
+              <img
+                src="../static/img/no_image.jpg"
+                alt="product-img"
+                style="width: 200px"
+              />
+              <div class="d-flex flex-column justify-content-between">
+                <h4>Product</h4>
+                <p>Description</p>
+                <p>R$ 9,90</p>
+              </div>
+            </li>
+            <li class="card d-flex flex-row mb-2 gap-2">
+              <img
+                src="../static/img/no_image.jpg"
+                alt="product-img"
+                style="width: 200px"
+              />
+              <div class="d-flex flex-column justify-content-between">
+                <h4>Product</h4>
+                <p>Description</p>
+                <p>R$ 9,90</p>
+              </div>
+            </li>
+          </ul>
+          <p class="text-center">See More</p>
+        </div>
 
-                    <a href="#" class="text-decoration-none">
-                        <li class="card d-flex flex-row mb-2 gap-2">
-                            <img src="../static/img/no_image.jpg" alt="event-img" style="width: 200px;">
-                            <div class="d-flex flex-column justify-content-between">
-                                <h4>Event </h4>
-                                <p>Description</p>
-                                <p>See More</p>
-                            </div>
-                        </li>
-                    </a>
+        <div id="events" class="col-6 card p-3 mb-0">
+          <h3 class="text-center">Events</h3>
+          <ul class="p-0">
+            <a href="#" class="text-decoration-none">
+              <li class="card d-flex flex-row mb-2 gap-2">
+                <img
+                  src="../static/img/no_image.jpg"
+                  alt="event-img"
+                  style="width: 200px"
+                />
+                <div class="d-flex flex-column justify-content-between">
+                  <h4>Event</h4>
+                  <p>Description</p>
+                  <p>See More</p>
+                </div>
+              </li>
+            </a>
 
-                    <a href="#" class="text-decoration-none">
-                        <li class="card d-flex flex-row mb-2 gap-2">
-                            <img src="../static/img/no_image.jpg" alt="event-img" style="width: 200px;">
-                            <div class="d-flex flex-column justify-content-between">
-                                <h4>Event </h4>
-                                <p>Description</p>
-                                <p>See More</p>
-                            </div>
-                        </li>
-                    </a>
+            <a href="#" class="text-decoration-none">
+              <li class="card d-flex flex-row mb-2 gap-2">
+                <img
+                  src="../static/img/no_image.jpg"
+                  alt="event-img"
+                  style="width: 200px"
+                />
+                <div class="d-flex flex-column justify-content-between">
+                  <h4>Event</h4>
+                  <p>Description</p>
+                  <p>See More</p>
+                </div>
+              </li>
+            </a>
 
-                    <a href="#" class="text-decoration-none">
-                        <li class="card d-flex flex-row mb-2 gap-2">
-                            <img src="../static/img/no_image.jpg" alt="event-img" style="width: 200px;">
-                            <div class="d-flex flex-column justify-content-between">
-                                <h4>Event</h4>
-                                <p>Description</p>
-                                <p>See More</p>
-                            </div>
-                        </li>
-                    </a>
-
-                </ul>
-                <p class="text-center">See more</p>
-            </div>
-        </section>
+            <a href="#" class="text-decoration-none">
+              <li class="card d-flex flex-row mb-2 gap-2">
+                <img
+                  src="../static/img/no_image.jpg"
+                  alt="event-img"
+                  style="width: 200px"
+                />
+                <div class="d-flex flex-column justify-content-between">
+                  <h4>Event</h4>
+                  <p>Description</p>
+                  <p>See More</p>
+                </div>
+              </li>
+            </a>
+          </ul>
+          <p class="text-center">See more</p>
+        </div>
+      </section>
     </main>
-    
-</body>
-
+  </body>
 </html>
