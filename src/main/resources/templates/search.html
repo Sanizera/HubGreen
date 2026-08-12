@@ -9,30 +9,31 @@
 </head>
 
 <body>
-    <main layout:fragment="content" class="d-flex">
-        <div class="col-4"></div>
-        <section class="col-4">
-            <h2 class="text-center">Buscar</h2>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="O que está buscando hoje?">
+    <main layout:fragment="content" class="container">
+        <div class="row justify-items-start">
+
+            <div class="col-4"></div>
+            <section class="col-4">
+                <h2 class="text-center">Buscar</h2>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="O que está buscando hoje?">
                 <button type="button" class="btn btn-success">Buscar</button>
             </div>
             <div class="d-flex justify-content-center gap-1">
 
                 <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
-                <label class="btn btn-success" for="option1">Checked</label>
+                <label class="btn btn-success" for="option1">Produtos</label>
 
                 <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
-                <label class="btn btn-success" for="option2">Radio</label>
-
-                <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off">
-                <label class="btn btn-success" for="option3">Disabled</label>
+                <label class="btn btn-success" for="option2">Expositores</label>
             </div>
             <hr>
             <ul id="results">
-
+                
             </ul>
         </section>
+        <div class="col-4"></div>
+    </div>
     </main>
 
 </body>
