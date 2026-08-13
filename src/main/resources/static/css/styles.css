@@ -26,6 +26,17 @@
   margin: 0 auto;
 }
 
+body {
+  background-color: rgb(246, 243, 215);
+}
+
+.menu-lateral {
+  background-color: rgb(58, 78, 37) !important;
+  opacity: 1 !important;
+  min-height: 100vh;
+  flex-shrink: 0;
+}
+
 .header-layout {
   background-color: rgb(218, 218, 174);
 }
