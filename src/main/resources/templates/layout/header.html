@@ -1,10 +1,14 @@
 <header
-  class="d-flex bg-light border-bottom py-3 px-4 align-items-center justify-content-between"
+  class="d-flex border-bottom py-0 px-0 align-items-center justify-content-between header-layout"
   th:fragment="header"
 >
   <div id="logo">
-    <a href="#" class="text-decoration-none">
-      <h1>HubGreen</h1>
+    <a th:href="@{/}" class="text-decoration-none">
+      <img
+        th:src="@{/img/logo-hubgreen-compacto.png}"
+        alt="HubGreen - Venha se conectar"
+        class="logo-layout"
+      />
     </a>
   </div>
   <div id="usuario">
