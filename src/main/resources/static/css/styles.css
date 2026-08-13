@@ -1,9 +1,8 @@
 * {
-  /*Reset do CSS - limpa todas as formataçoes*/
   list-style: none;
   text-decoration: none;
   font-size: 1rem;
-  box-sizing: border-box; /* Tudo que der de largura conta a borda */
+  box-sizing: border-box;
 }
 
 .fotos-evento {
@@ -25,4 +24,14 @@
 .carousel-container {
   max-width: 400px;
   margin: 0 auto;
+}
+
+.header-layout {
+  background-color: rgb(218, 218, 174);
+}
+
+.logo-layout {
+  width: 180px;
+  height: auto;
+  display: block;
 }
