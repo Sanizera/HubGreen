@@ -56,3 +56,11 @@ body {
 .footer-layout p {
   margin: 0;
 }
+
+.table-color {
+  background-color: rgb(246, 243, 215);
+}
+.table-color th,
+.table-color td {
+  background-color: rgb(246, 243, 215);
+}
