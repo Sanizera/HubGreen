@@ -35,3 +35,13 @@
   height: auto;
   display: block;
 }
+
+.footer-layout {
+  background-color: transparent;
+  text-align: center;
+  padding: 10px;
+}
+
+.footer-layout p {
+  margin: 0;
+}
