@@ -83,3 +83,9 @@ body {
 .color-button {
   background-color: rgb(58, 78, 37);
 }
+
+.main-menu .nav-link.active {
+  background-color: rgb(43, 58, 27);
+  color:#ffffff;
+  font-weight: 500;
+}

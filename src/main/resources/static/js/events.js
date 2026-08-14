@@ -1,8 +1,5 @@
 const GLOBAL_URL = "https://6a63aec1b30b52361e1a9073.mockapi.io/events";
 
-const qs = (selector) => document.querySelector(selector);
-const qsAll = (selector) => document.querySelectorAll(selector);
-
 document.addEventListener("DOMContentLoaded", () => {
   loadEvents();
 });
