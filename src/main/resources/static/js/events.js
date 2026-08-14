@@ -49,3 +49,27 @@ function getDateTime(timeStamp) {
   const timeResult = time.substring(0, 5);
   return [`${day}/${month}/${year}`, timeResult];
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  flatpickr("#dataEvento", {
+    enableTime: true,
+
+    time_24hr: true,
+
+    locale: "pt",
+
+    altInput: true,
+
+    altFormat: "d/m/Y H:i",
+
+    dateFormat: "Y-m-d H:i",
+
+    minDate: "today",
+
+    plugins: [
+      new confirmDatePlugin({
+        confirmText: "OK",
+      }),
+    ],
+  });
+});
