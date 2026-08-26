@@ -29,7 +29,7 @@ public class PageController {
 
     @GetMapping("/events")
     public String listaUsuario() {
-        return "events";
+        return "event_list";
     }
     
 }
