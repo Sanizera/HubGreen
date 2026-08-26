@@ -11,14 +11,15 @@
         ></a>
         <span id="titulo-evento">Feira da Cultura</span>
       </h2>
+
       <nav>
-        <a href="#evento" class="btn btn-outline-success btn-sm"
+        <a href="#evento" class="btn btn-success color-button"
           >Sobre o Evento</a
         >
-        <a href="#participantes" class="btn btn-outline-success btn-sm"
-          >Participantes</a
+        <a href="#expositores" class="btn btn-success color-button"
+          >Expositores</a
         >
-        <a href="#fotos" class="btn btn-outline-success btn-sm">Fotos</a>
+        <a href="#fotos" class="btn btn-success color-button">Fotos</a>
       </nav>
 
       <section id="evento">
@@ -42,15 +43,15 @@
         <br />
         <br />
       </section>
-      <section id="participantes">
+      <section id="expositores">
         <div class="d-flex justify-content-between">
-          <h4 class="texto-chamada">Participantes</h4>
+          <h4 class="texto-chamada">Expositores</h4>
           <button class="btn btn-success color-button" id="adicionar-participante"><i class="bi bi-plus-lg"></i></button>
         </div>
         <table class="table table-bordered table-striped mt-3 table-color">
           <thead>
             <tr>
-              <th>Feirante</th>
+              <th>Nome</th>
               <th>Biografia</th>
             </tr>
           </thead>
@@ -86,7 +87,17 @@
       </section>
 
       <section id="fotos">
-        <h4 class="texto-chamada">Fotos do Evento</h4>
+        <div class="d-flex justify-content-between align-items-center">
+          <h4 class="texto-chamada mb-0">Fotos do Evento</h4>
+
+          <a
+            href="#"
+            class="btn btn-success color-button"
+            data-bs-toggle="modal"
+            data-bs-target="#modal_foto_nova"
+            ><i class="bi bi-plus-square"></i>
+          </a>
+        </div>
 
         <div class="carousel-container">
           <div id="carouselFotos" class="carousel slide bg-body-secondary">
@@ -155,7 +166,55 @@
         </div>
       </section>
 
-      <!-- MODALS -->
+      <!-- MODALS CADASTRAR FOTOS -->
+
+      <div class="modal fade" id="modal_foto_nova" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content color-ground">
+            <div class="modal-header">
+              <h5 class="modal-title">Adicionar foto</h5>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Fechar"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              <label for="urlFoto" class="form-label"> URL da foto </label>
+
+              <input
+                type="url"
+                id="urlFoto"
+                class="form-control"
+                placeholder="https://exemplo.com/foto.jpg"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+
+              <button
+                type="button"
+                id="btnAdicionarFoto"
+                class="btn btn-success color-button"
+              >
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL EXIBIR FOTOS -->
       <div class="modal fade" id="modal-foto" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
           <div class="modal-content">

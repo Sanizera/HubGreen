@@ -53,15 +53,11 @@ function getDateTime(timeStamp) {
 document.addEventListener("DOMContentLoaded", () => {
   flatpickr("#dataEvento", {
     enableTime: true,
-
     time_24hr: true,
-
     locale: "pt",
-
+    disableMobile: true,
     altInput: true,
-
     altFormat: "d/m/Y H:i",
-
     dateFormat: "Y-m-d H:i",
 
     minDate: "today",
