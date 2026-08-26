@@ -44,7 +44,10 @@
         <br />
       </section>
       <section id="expositores">
-        <h4 class="texto-chamada">Expositores</h4>
+        <div class="d-flex justify-content-between">
+          <h4 class="texto-chamada">Expositores</h4>
+          <button class="btn btn-success color-button" id="adicionar-participante"><i class="bi bi-plus-lg"></i></button>
+        </div>
         <table class="table table-bordered table-striped mt-3 table-color">
           <thead>
             <tr>
@@ -163,7 +166,7 @@
         </div>
       </section>
 
-      <!-- MODAL CADASTRAR FOTOS -->
+      <!-- MODALS CADASTRAR FOTOS -->
 
       <div class="modal fade" id="modal_foto_nova" tabindex="-1">
         <div class="modal-dialog">
@@ -212,7 +215,7 @@
       </div>
 
       <!-- MODAL EXIBIR FOTOS -->
-      <div class="modal fade" id="modalFoto" tabindex="-1" aria-hidden="true">
+      <div class="modal fade" id="modal-foto" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
           <div class="modal-content">
             <button
@@ -234,6 +237,30 @@
         </div>
       </div>
 
+      <div class="modal fade" id="modal-participante" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+          <div class="modal-content table-color">
+            <div class="modal-header">
+              <h4 class="m-0">Adicionar participante</h2>
+              <button
+              type="button"
+              class="btn-close "
+              data-bs-dismiss="modal"
+              aria-label="Fechar"
+              ></button>  
+            </div>
+                
+            <div class="modal-body p-2">
+              <form action="#" >
+                <div class="mb-3">
+                  <label for="participante" class="input-label">Participante</label>
+                  <input type="text" name="participante" id="participante" class="form-control">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <script th:src="@{/js/event.js}"></script>
     </main>
   </body>

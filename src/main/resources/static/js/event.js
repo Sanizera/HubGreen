@@ -1,3 +1,5 @@
+
+
 const GLOBAL_URL = "https://6a63aec1b30b52361e1a9073.mockapi.io/events";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -44,10 +46,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // MODAL DAS FOTOS
+  handleImageModal();
+
+  //MODAL DE PARTICIPANTES
+  handleParticipationModal();
+});
+
+// MODAL DAS FOTOS
+function handleImageModal(){
 
   const fotos = document.querySelectorAll(".foto-modal");
   const imagemModal = document.querySelector("#imagemModal");
-  const modalElement = document.querySelector("#modalFoto");
+  const modalElement = document.querySelector("#modal-foto");
 
   fotos.forEach((foto) => {
     foto.addEventListener("click", () => {
@@ -61,7 +71,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       modal.show();
     });
   });
-});
+};
+// MODAL PARTICIPANTES
+
+function handleParticipationModal(){
+  const botao = document.querySelector("#adicionar-participante");
+  const modalElement = document.querySelector("#modal-participante");
+  
+  botao.addEventListener("click", () => {
+
+    const modal = bootstrap.Modal.getOrCreateInstance(modalElement);
+    modal.show();
+    
+  });
+
+};
+
 
 function getDateTime(timeStamp) {
   if (!timeStamp) {
