@@ -51,6 +51,16 @@ function getDateTime(timeStamp) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  const saveBtn = document.querySelector("#save-btn");
+
+  saveBtn.addEventListener('click', (e)=>{
+    const form = e.target.closest("form");
+    const formData = new FormData(form);
+    const event = Object.fromEntries(formData.entries());
+
+    saveEvent(event);
+  })
+
   flatpickr("#dataEvento", {
     enableTime: true,
     time_24hr: true,
@@ -69,3 +79,24 @@ document.addEventListener("DOMContentLoaded", () => {
     ],
   });
 });
+
+async function saveEvent(event){
+
+  try{
+
+    const response = await fetch(GLOBAL_URL,{
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(event)  
+    });
+    const data = await response.json();
+     
+    window.location.href = `${window.location.origin}/event?id=${data.id}`
+    return data;
+    
+  }catch (error){
+    alert("impossível criar evento.");
+    console.log(error);
+  }
+
+}   
