@@ -1,4 +1,4 @@
--- =========================================================
+                _   -- =========================================================
 -- BANCO DE DADOS
 -- =========================================================
 
@@ -177,7 +177,7 @@ CREATE TABLE produto (
     imagem VARCHAR(500) NULL,
     valor DECIMAL(12,2) NOT NULL DEFAULT 0.00,
     categoria_id INT UNSIGNED NOT NULL,
-
+    
     PRIMARY KEY (id),
 
     KEY idx_produto_expositor (expositor_id),
