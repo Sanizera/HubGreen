@@ -1,6 +1,6 @@
 
 
-const GLOBAL_URL = "https://6a63aec1b30b52361e1a9073.mockapi.io/events";
+const GLOBAL_URL = "http://localhost:8080/api/v1/eventos";
 
 document.addEventListener("DOMContentLoaded", async () => {
   // DADOS DO EVENTO
@@ -23,20 +23,20 @@ document.addEventListener("DOMContentLoaded", async () => {
       const tituloEvent = document.getElementById("titulo-evento");
 
       if (tituloEvent) {
-        tituloEvent.textContent = evento.name;
+        tituloEvent.textContent = evento.nmEvento;
       }
 
-      const [dataFormatada, horaFormatada] = getDateTime(evento.date);
+      const [dataFormatada, horaFormatada] = getDateTime(evento.dthrEvento);
 
-      const tbody = document.getElementById("tabela-event");
+      const tbody = document.getElementById("tabela-event");  
 
       if (tbody) {
         tbody.innerHTML = `
           <tr>
-            <td>${evento.name}</td>
+            <td>${evento.nmEvento}</td>
             <td>${dataFormatada}</td>
             <td>${horaFormatada}</td>
-            <td>${evento.local}</td>
+            <td>${evento.localEvento}</td>
           </tr>
         `;
       }

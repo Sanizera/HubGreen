@@ -4,8 +4,6 @@
     <title>Admin</title>
   </head>
   <body>
-    <!-- Header -->
-
     <style>
       @media screen and (min-width: 768px) {
         .main-menu {
@@ -13,8 +11,6 @@
         }
       }
     </style>
-
-    <!-- Menu -->
 
     <!-- Main -->
     <main layout:fragment="content">
@@ -24,6 +20,7 @@
           class="btn btn-success color-button"
           data-bs-toggle="modal"
           data-bs-target="#modal_eventos"
+          onclick="loadStates()"
         >
           Novo Evento
         </button>
@@ -60,40 +57,58 @@
               </div>
               <div class="modal-body">
                 <div class="mb-3">
-                  <label for="nome" class="form-label">Nome</label>
+                  <label for="nmEvento" class="form-label">Nome</label>
                   <input
                     type="text"
-                    name="nome"
-                    id="nome"
+                    name="nmEvento"
+                    id="nmEvento"
                     class="form-control"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="local" class="form-label">Local</label>
+                  <label for="sguf" class="form-label">Estado</label>
+                  <select
+                    name="sguf"
+                    id="sguf"
+                    class="form-select"
+                    onchange="loadCities(this.value)"
+                  >
+                    <option value="null">Selecionar Estado</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="cdCidade" class="form-label">Cidade</label>
+                  <select name="cdCidade" id="cdCidade" class="form-select">
+                    <option value="null">Selecionar Cidade</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="localEvento" class="form-label">Local</label>
                   <input
                     type="text"
-                    name="local"
-                    id="local"
+                    name="localEvento"
+                    id="localEvento"
                     class="form-control"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="data-horario" class="form-label"
+                  <label for="dthrEvento" class="form-label"
                     >Data e Horário</label
                   >
                   <input
                     type="text"
-                    id="dataEvento"
+                    name="dthrEvento"
+                    id="dthrEvento"
                     class="form-control"
                     placeholder="Selecione a data e horário"
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="descricao" class="form-label">Descrição</label>
+                  <label for="dsEvento" class="form-label">Descrição</label>
                   <input
                     type="text"
-                    name="descricao"
-                    id="descricao"
+                    name="dsEvento"
+                    id="dsEvento"
                     class="form-control"
                   />
                 </div>
@@ -106,7 +121,11 @@
                 >
                   Fechar
                 </button>
-                <button type="button" class="btn btn-success color-button" id="save-btn">
+                <button
+                  type="button"
+                  class="btn btn-success color-button"
+                  id="save-btn"
+                >
                   Salvar
                 </button>
               </div>

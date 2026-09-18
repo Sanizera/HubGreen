@@ -1,4 +1,4 @@
-const GLOBAL_URL = "https://6a63aec1b30b52361e1a9073.mockapi.io/events";
+const GLOBAL_URL = "http://localhost:8080/api/v1";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadEvents();
@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadEvents() {
   try {
-    const response = await fetch(GLOBAL_URL);
+    const response = await fetch(`${GLOBAL_URL}/eventos`);
     const data = await response.json();
 
     populateTable(data);
@@ -21,16 +21,16 @@ function populateTable(data) {
 
   let html = "";
   for (event of data) {
-    const dateTime = getDateTime(event.date);
+    const dateTime = getDateTime(event.dthrEvento);
 
     html += `
     <tr class="position-relative">
         <td>
-            <a href="/event?id=${event.id}" class="stretched-link text-decoration-none text-dark">
-                ${event.name}
+            <a href="/event?id=${event.cdEvento}" class="stretched-link text-decoration-none text-dark">
+                ${event.nmEvento}
             </a>
         </td>
-        <td>${event.local}</td>
+        <td>${event.localEvento}</td>
         <td>${dateTime[0]}</td>
         <td>${dateTime[1]}</td>
         <td>Opções</td>
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveEvent(event);
   })
 
-  flatpickr("#dataEvento", {
+  flatpickr("#dthrEvento", {
     enableTime: true,
     time_24hr: true,
     locale: "pt",
@@ -81,17 +81,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function saveEvent(event){
-
+  console.log(event);
   try{
 
-    const response = await fetch(GLOBAL_URL,{
+    const response = await fetch(`${GLOBAL_URL}/eventos`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(event)  
     });
     const data = await response.json();
      
-    window.location.href = `${window.location.origin}/event?id=${data.id}`
+    console.log(data);
+    // window.location.href = `${window.location.origin}/event?id=${data.id}`
     return data;
     
   }catch (error){
@@ -99,4 +100,50 @@ async function saveEvent(event){
     console.log(error);
   }
 
-}   
+}  
+
+
+async function loadStates(){
+  const response = await fetch(`${GLOBAL_URL}/estados`);
+  const data = await response.json();
+
+  populateStateOptions(data);
+}
+
+async function loadCities(sguf) { 
+  if (sguf == "null") {
+    populateCitiesOptions(sguf);
+    return;
+  }
+  const response = await fetch(`${GLOBAL_URL}/cidades/estado/${sguf}`);
+  const data = await response.json();
+  
+  populateCitiesOptions(data);
+}
+
+function populateStateOptions(data) {
+  const select = document.querySelector("#sguf");
+  let html = "";
+  data.forEach(estado => {
+    html += `<option value=${estado.sguf}>${estado.nmuf}</option>`
+  });
+  
+  select.innerHTML += html;
+}
+
+function populateCitiesOptions(data){
+  const select = document.querySelector("#cdCidade");
+  let html = "<option value='null'>Selecionar Cidade</option>";
+  
+  
+  if (data == "null") {
+    select.innerHTML = html;
+    return;
+  }
+  
+  data.forEach(cidade => {
+    html += `<option value=${cidade.cdCidade}>${cidade.nmCidade}</option>`
+  });
+
+  select.innerHTML = html;
+}
