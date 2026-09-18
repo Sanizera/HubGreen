@@ -9,11 +9,29 @@ import jakarta.persistence.Table;
 @Table(name = "estados")
 public class Estado {
     @Id 
-    @Column(name = "SGUF", length = 2)
+    @Column(name = "SGUF", columnDefinition="CHAR(2)")
     private String sguf;
 
-    @Column(name = "NMUF", nullable=false, length=20)
+    @Column(name = "NMUF", nullable=false, length=30)
     private String nmuf;
+
+    public Estado(){}
+    
+    public String getSguf() {
+        return sguf;
+    }
+
+    public String getNmuf() {
+        return nmuf;
+    }
+
+    public void setSguf(String sguf) {
+        this.sguf = sguf;
+    }
+
+    public void setNmuf(String nmuf) {
+        this.nmuf = nmuf;
+    }
 
     
 }
