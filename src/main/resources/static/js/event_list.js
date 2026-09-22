@@ -56,9 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
   saveBtn.addEventListener('click', (e)=>{
     const form = e.target.closest("form");
     const formData = new FormData(form);
-    const event = Object.fromEntries(formData.entries());
-
-    saveEvent(event);
+    const eventPayload = buildEventPayload(formData);
+    saveEvent(eventPayload);
   })
 
   flatpickr("#dthrEvento", {
@@ -80,20 +79,23 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-async function saveEvent(event){
-  console.log(event);
+async function saveEvent(eventPayload){
+  console.log(eventPayload);
   try{
 
     const response = await fetch(`${GLOBAL_URL}/eventos`,{
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(event)  
+      body: JSON.stringify(eventPayload)  
     });
     const data = await response.json();
      
     console.log(data);
-    // window.location.href = `${window.location.origin}/event?id=${data.id}`
-    return data;
+    if (data.cdEvento) { 
+      window.location.href = `${window.location.origin}/event?id=${await data.cdEvento}`
+    } else {
+      alert("Erro");
+    }
     
   }catch (error){
     alert("impossível criar evento.");
@@ -122,18 +124,19 @@ async function loadCities(sguf) {
 }
 
 function populateStateOptions(data) {
+  
   const select = document.querySelector("#sguf");
-  let html = "";
+  let html = "<option value='null'>Selecionar Estado</option>";
+
   data.forEach(estado => {
     html += `<option value=${estado.sguf}>${estado.nmuf}</option>`
   });
   
-  select.innerHTML += html;
+  select.innerHTML = html;
 }
 
 function populateCitiesOptions(data){
   const select = document.querySelector("#cdCidade");
-  let html = "<option value='null'>Selecionar Cidade</option>";
   
   
   if (data == "null") {
@@ -146,4 +149,24 @@ function populateCitiesOptions(data){
   });
 
   select.innerHTML = html;
+}
+
+function buildEventPayload(formData) {
+  const raw = Object.fromEntries(formData.entries())
+
+  return {
+    nmEvento: raw.nmEvento,
+    localEvento: raw.localEvento,
+    dsEvento: raw.dsEvento,
+    cidade: { cdCidade: parseInt(raw.cdCidade) },
+    dthrEvento: formatDatetime(raw.dthrEvento)
+  };
+}
+
+function formatDatetime(value) {
+  let corrected = value.replace(' ', 'T');
+  if (corrected.length === 16) {
+    corrected += ':00';
+  }
+  return corrected;
 }
